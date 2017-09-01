@@ -1,0 +1,1629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">131</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">131</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">131</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="Param_provCode" id="132">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">'11'</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Param_cycle" id="159">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">"20170308,20170309,20170310"</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Param_month" id="334">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="timeDataSource" id="130">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/db01</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWRtaW4=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="TimesDataSet" id="131">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">cycle</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cycle</text-property>
+                    <text-property name="heading">cycle</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">province_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">province_code</text-property>
+                    <text-property name="heading">province_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">consume_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">consume_type</text-property>
+                    <text-property name="heading">consume_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">param_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">param_name</text-property>
+                    <text-property name="heading">param_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">eight_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">eight_times</text-property>
+                    <text-property name="heading">eight_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ten_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ten_times</text-property>
+                    <text-property name="heading">ten_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">twelve_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">twelve_times</text-property>
+                    <text-property name="heading">twelve_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">fourteen_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">fourteen_times</text-property>
+                    <text-property name="heading">fourteen_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sixteen_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">sixteen_times</text-property>
+                    <text-property name="heading">sixteen_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">eighteen_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">eighteen_times</text-property>
+                    <text-property name="heading">eighteen_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">twenty_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">twenty_times</text-property>
+                    <text-property name="heading">twenty_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">twenty_two_times</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">twenty_two_times</text-property>
+                    <text-property name="heading">twenty_two_times</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total</text-property>
+                    <text-property name="heading">total</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_province</property>
+                    <property name="paramName">Param_provCode</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_cycle</property>
+                    <property name="paramName">Param_cycle</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_month</property>
+                    <property name="paramName">Param_month</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">cycle</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">province_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">consume_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">param_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">eight_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ten_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">twelve_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">fourteen_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">sixteen_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">eighteen_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">twenty_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">twenty_two_times</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">total</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[importPackage( Packages.java.lang );
+var provinceCode = params["Param_provCode"].value;
+//var stageName = params["stageName"].value;
+var cycleDate = params["Param_cycle"].value;
+var cycleMonth = params["Param_month"].value
+var times = null;
+var curMonth=null
+var myDate = new Date();
+myDate.getDate(); 
+myDate.getMonth();
+var day=myDate.getDate();
+var year=myDate.getFullYear();
+var month=myDate.getMonth();
+System.out.println("Date======"+myDate.getDate());
+System.out.println("Month======"+myDate.getMonth());
+System.out.println("Year======"+myDate.getFullYear());
+if(myDate.getMonth()=="0"){
+	times=parseInt(myDate.getFullYear())-1+"12";
+}else{
+	if(day<10){
+		times=myDate.getFullYear()+"0"+myDate.getMonth();
+	}else{
+		times=myDate.getFullYear()+""+myDate.getMonth();
+	}
+	
+}
+if(month<9){
+	 curMonth=year+"0"+(parseInt(myDate.getMonth())+1);
+}else{
+	curMonth=year+""+(parseInt(myDate.getMonth())+1);
+}
+
+System.out.println("times======"+times);
+System.out.println("curMonth======"+curMonth);
+System.out.println("cycleMonth======"+cycleMonth);
+if(provinceCode!="99"){
+   this.queryText = this.queryText.replaceAll("AND province_code=17","AND province_code="+provinceCode);
+}else{
+
+   this.queryText=this.queryText.replaceAll("AND province_code=17"," ");
+ //  this.queryText=this.queryText.replaceAll("GROUP BY consume_type","group by consume_type");
+   
+ //  this.queryText = this.queryText.replaceAll("SUM(eight_times)","FORMAT(SUM(eight_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(ten_times)","FORMAT(SUM(ten_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(twelve_times)"," FORMAT(SUM(twelve_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(fourteen_times)","FORMAT(SUM(fourteen_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(sixteen_times)","FORMAT(SUM(sixteen_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(eighteen_times)","FORMAT(SUM(eighteen_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(twenty_times)","FORMAT(SUM(twenty_times)/31,2)");
+ //  this.queryText = this.queryText.replaceAll("SUM(twenty_two_times)","FORMAT(SUM(twenty_two_times)/31,2)");
+}
+//if(stageName!="0"){
+//	this.queryText = this.queryText.replaceAll("stage_name='ccc'","stage_name='"+stageName+"'");
+//}else{
+//	this.queryText = this.queryText.replaceAll("AND stage_name='ccc'"," ");
+//}
+if(cycleDate!="20501231"){
+	this.queryText =this.queryText.replaceAll("AND cycle=20170308","AND cycle in ("+cycleDate+")") ;
+}else{
+	if(day=="1"){
+		this.queryText =this.queryText.replaceAll("AND cycle=20170308"," AND cycle like '"+times+"%'") ;
+	}else{
+	    if(cycleMonth==curMonth){
+		   this.queryText =this.queryText.replaceAll("AND cycle=20170308"," AND cycle like '"+curMonth+"%'") ;
+		}else{
+		   this.queryText =this.queryText.replaceAll("AND cycle=20170308"," AND cycle like '"+cycleMonth+"%'") ;
+		}
+	}
+	
+}
+System.out.println("this.queryText="+this.queryText);
+//System.out.println("stageName="+stageName);
+System.out.println("provinceCode="+provinceCode);
+System.out.println("cycleDate="+cycleDate);]]></method>
+            <property name="dataSource">timeDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">cycle</property>
+                    <property name="nativeName">cycle</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">province_code</property>
+                    <property name="nativeName">province_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">consume_type</property>
+                    <property name="nativeName">consume_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">param_name</property>
+                    <property name="nativeName">param_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">eight_times</property>
+                    <property name="nativeName">eight_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ten_times</property>
+                    <property name="nativeName">ten_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">twelve_times</property>
+                    <property name="nativeName">twelve_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">fourteen_times</property>
+                    <property name="nativeName">fourteen_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">sixteen_times</property>
+                    <property name="nativeName">sixteen_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">eighteen_times</property>
+                    <property name="nativeName">eighteen_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">twenty_times</property>
+                    <property name="nativeName">twenty_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">twenty_two_times</property>
+                    <property name="nativeName">twenty_two_times</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">total</property>
+                    <property name="nativeName">total</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select
+a.cycle,
+a.province_code,
+a.consume_type,
+b.param_name,
+a.eight_times,
+a.ten_times,
+a.twelve_times,
+a.fourteen_times,
+a.sixteen_times,
+a.eighteen_times,
+a.twenty_times,
+a.twenty_two_times,
+a.eight_times+a.ten_times+a.twelve_times+a.fourteen_times+a.sixteen_times+a.eighteen_times+a.twenty_times+a.twenty_two_times as total
+FROM
+(SELECT 
+    province_code,
+    consume_type,
+	cycle,
+    SUM(eight_times) eight_times,
+    SUM(ten_times) ten_times,
+    SUM(twelve_times) twelve_times,
+    SUM(fourteen_times) fourteen_times,
+    SUM(sixteen_times) sixteen_times,
+    SUM(eighteen_times) eighteen_times,
+    SUM(twenty_times) twenty_times,
+	SUM(twenty_two_times) twenty_two_times
+  FROM
+    t_r_time_slot 
+  WHERE 0 = 0 
+  AND 1<>?
+  AND 2<>?
+  AND 3<>?
+  AND province_code=17  AND cycle=20170308 GROUP BY consume_type) a , t_r_params b 
+  where a.consume_type = b.param_code and b.param_tag = 'CONSUME_TYPE' ORDER BY b.param_level ASC]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="NewStyle" id="308">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="N2" id="331">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="N3" id="332">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="n4" id="333">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="leftMargin">0in</property>
+            <property name="rightMargin">0in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="4">
+            <property name="borderBottomColor">#C0C0C0</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftColor">#C0C0C0</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightColor">#C0C0C0</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopColor">#C0C0C0</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="dataSet">TimesDataSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">eight_times</property>
+                    <text-property name="displayName">eight_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["eight_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["eight_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">eighteen_times</property>
+                    <text-property name="displayName">eighteen_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["eighteen_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["eighteen_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">ten_times</property>
+                    <text-property name="displayName">ten_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["ten_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["ten_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">twelve_times</property>
+                    <text-property name="displayName">twelve_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["twelve_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["twelve_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">fourteen_times</property>
+                    <text-property name="displayName">fourteen_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["fourteen_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["fourteen_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">sixteen_times</property>
+                    <text-property name="displayName">sixteen_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["sixteen_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["sixteen_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">twenty_times</property>
+                    <text-property name="displayName">twenty_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["twenty_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["twenty_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">twenty_two_times</property>
+                    <text-property name="displayName">twenty_two_times</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["twenty_two_times"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["twenty_two_times"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">consume_type</property>
+                    <text-property name="displayName">consume_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["consume_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <text-property name="displayName">eight_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["eight_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <text-property name="displayName">ten_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["ten_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <text-property name="displayName">twelve_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["twelve_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <text-property name="displayName">fourteen</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["fourteen_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_4</property>
+                    <text-property name="displayName">sixteen_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["sixteen_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_5</property>
+                    <text-property name="displayName">eithteen_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["eighteen_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_6</property>
+                    <text-property name="displayName">twenty_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["twenty_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_7</property>
+                    <text-property name="displayName">twentytwo_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["twenty_two_times"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">total</property>
+                    <text-property name="displayName">total</text-property>
+                    <expression name="expression" type="javascript">importPackage( Packages.java.lang );&#13;
+var provinceCode = params["Param_provCode"].value;&#13;
+if(provinceCode!='99'){&#13;
+   dataSetRow["total"]&#13;
+}else{&#13;
+   Math.round(dataSetRow["total"]/31)&#13;
+}</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_8</property>
+                    <text-property name="displayName">total_sum</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["total"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <text-property name="displayName">scale</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total"]/row["Aggregation_8"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">cycle</property>
+                    <text-property name="displayName">cycle</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cycle"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">param_name</property>
+                    <text-property name="displayName">param_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["param_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_9</property>
+                    <text-property name="displayName">sumScale</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Column Binding"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="313">
+                <property name="style">n4</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="102">
+                <property name="style">n4</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="103">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="104">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="105">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="106">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="107">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="108">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="109">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <column id="110">
+                <property name="style">N3</property>
+                <property name="fontFamily">"@微软雅黑"</property>
+                <property name="width">130px</property>
+            </column>
+            <header>
+                <row id="318">
+                    <property name="style">n4</property>
+                    <property name="backgroundColor">#A5DAB0</property>
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#C0C0C0</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#C0C0C0</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#C0C0C0</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <cell id="319">
+                        <property name="colSpan">10</property>
+                        <property name="rowSpan">1</property>
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="330">
+                            <property name="backgroundColor">silver</property>
+                            <property name="fontSize">24pt</property>
+                            <text-property name="text">2小时时间段数据透视表</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="179">
+                    <property name="style">n4</property>
+                    <property name="backgroundColor">#A5DAB0</property>
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">14pt</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#C0C0C0</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#C0C0C0</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#C0C0C0</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <cell id="310">
+                        <property name="style">n4</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="315">
+                            <property name="fontSize">14pt</property>
+                            <property name="width">100px</property>
+                            <text-property name="text">耗时阶段</text-property>
+                        </label>
+                    </cell>
+                    <cell id="181">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="192">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">8:00-10:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="279">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="193">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="display">block</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">10:00-12:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="182">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="194">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">12:00-14:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="278">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="195">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">14:00-16:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="183">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="196">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">16:00-18:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="184">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="197">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">18:00-20:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="185">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="198">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">20:00-22:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="186">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="199">
+                            <property name="fontSize">14pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="width">130px</property>
+                            <text-property name="text">22:00-24:00</text-property>
+                        </label>
+                    </cell>
+                    <cell id="187">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#9EE0A5</property>
+                        <property name="fontSize">14pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="270">
+                            <property name="fontSize">14pt</property>
+                            <property name="marginBottom">0pt</property>
+                            <property name="width">100px</property>
+                            <text-property name="text">总计</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="41">
+                    <property name="backgroundColor">#FFFFFF</property>
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">12pt</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#C0C0C0</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#C0C0C0</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#C0C0C0</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <cell id="311">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="316">
+                            <property name="fontSize">12pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">param_name</property>
+                        </data>
+                    </cell>
+                    <cell id="43">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="134">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">eight_times</property>
+                        </data>
+                    </cell>
+                    <cell id="44">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="136">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">ten_times</property>
+                        </data>
+                    </cell>
+                    <cell id="45">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="137">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">twelve_times</property>
+                        </data>
+                    </cell>
+                    <cell id="46">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="138">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">fourteen_times</property>
+                        </data>
+                    </cell>
+                    <cell id="47">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="139">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">sixteen_times</property>
+                        </data>
+                    </cell>
+                    <cell id="48">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="135">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">eighteen_times</property>
+                        </data>
+                    </cell>
+                    <cell id="49">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="140">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">twenty_times</property>
+                        </data>
+                    </cell>
+                    <cell id="50">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="141">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">twenty_two_times</property>
+                        </data>
+                    </cell>
+                    <cell id="51">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <data id="223">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">total</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="202">
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">12pt</property>
+                    <property name="borderBottomColor">#C0C0C0</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#C0C0C0</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#C0C0C0</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#C0C0C0</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <cell id="312">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="317">
+                            <property name="fontSize">12pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">总计</text-property>
+                        </label>
+                    </cell>
+                    <cell id="204">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="215">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation</property>
+                        </data>
+                    </cell>
+                    <cell id="205">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="216">
+                            <structure name="numberFormat">
+                                <property name="category">General Number</property>
+                                <property name="pattern">General Number</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_1</property>
+                        </data>
+                    </cell>
+                    <cell id="206">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="217">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_2</property>
+                        </data>
+                    </cell>
+                    <cell id="207">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="218">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_3</property>
+                        </data>
+                    </cell>
+                    <cell id="208">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="219">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_4</property>
+                        </data>
+                    </cell>
+                    <cell id="209">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="220">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_5</property>
+                        </data>
+                    </cell>
+                    <cell id="210">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="221">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_6</property>
+                        </data>
+                    </cell>
+                    <cell id="211">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="222">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_7</property>
+                        </data>
+                    </cell>
+                    <cell id="212">
+                        <property name="style">NewStyle</property>
+                        <property name="backgroundColor">#FFFFFF</property>
+                        <property name="fontFamily">"@微软雅黑"</property>
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomColor">#C0C0C0</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#C0C0C0</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#C0C0C0</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#C0C0C0</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="224">
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation_8</property>
+                        </data>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="PROV" id="113">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="TYPE" id="114">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="MON" id="8">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="CYCLE" id="115">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/db01</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWRtaW4=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="ds" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">province_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">province_code</text-property>
+                    <text-property name="heading">province_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">param_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">param_name</text-property>
+                    <text-property name="heading">cdr_type1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">eparchy_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">eparchy_code</text-property>
+                    <text-property name="heading">eparchy_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">eparchy_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">eparchy_name</text-property>
+                    <text-property name="heading">eparchy_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">rate_time</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">rate_time</text-property>
+                    <text-property name="heading">rate_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">begin_time</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">begin_time</text-property>
+                    <text-property name="heading">begin_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">phone_number</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">phone_number</text-property>
+                    <text-property name="heading">phone_number</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">fee</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">fee</text-property>
+                    <text-property name="heading">fee</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">buiness_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">buiness_type</text-property>
+                    <text-property name="heading">buiness_type</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">PROV</property>
+                    <property name="paramName">PROV</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">TYPE</property>
+                    <property name="paramName">TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">MON</property>
+                    <property name="paramName">MON</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">CYCLE</property>
+                    <property name="paramName">CYCLE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">province_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">param_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">eparchy_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">eparchy_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">rate_time</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">begin_time</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">phone_number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">fee</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">buiness_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[importPackage( Packages.java.lang );
+var provinceCode = params["PROV"].value;
+var TYPE = params["TYPE"].value;
+var cycleDate = params["CYCLE"].value;
+var mon = params["MON"].value;
+
+if(provinceCode!="99"){
+	this.queryText = this.queryText.replaceAll("and a.province_code = '17'","and a.province_code = "+provinceCode);
+}else{
+	this.queryText = this.queryText.replaceAll("and a.province_code = '17'","");
+}
+
+if(TYPE!="all"){
+	this.queryText = this.queryText.replaceAll("and a.buiness_type = 'GPRS'","and a.buiness_type = '"+TYPE+"'");
+}else{
+	this.queryText = this.queryText.replaceAll("and a.buiness_type = 'GPRS'","");
+}
+if(cycleDate!="20501231"){
+	this.queryText = this.queryText.replaceAll("and a.rate_time = '20170501'","and a.rate_time in ("+cycleDate+")");
+}else{
+	this.queryText = this.queryText.replaceAll("and a.rate_time = '20170501'","");
+}
+this.queryText=this.queryText.replaceAll("and a.rate_time like '201705%'"," and a.rate_time like '"+mon+"%'");
+
+System.out.println("this.queryText="+this.queryText);]]></method>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">province_code</property>
+                    <property name="nativeName">province_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">param_name</property>
+                    <property name="nativeName">param_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">eparchy_code</property>
+                    <property name="nativeName">eparchy_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">eparchy_name</property>
+                    <property name="nativeName">EPARCHY_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">rate_time</property>
+                    <property name="nativeName">rate_time</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">begin_time</property>
+                    <property name="nativeName">begin_time</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">phone_number</property>
+                    <property name="nativeName">phone_number</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">fee</property>
+                    <property name="nativeName">fee</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">buiness_type</property>
+                    <property name="nativeName">buiness_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+  a.province_code,
+  b.param_name,
+  a.eparchy_code,
+  c.eparchy_name,
+  a.rate_time,
+  a.begin_time,
+  a.phone_number,
+  a.fee,
+  CASE
+    a.buiness_type 
+    WHEN 'GPRS' 
+    THEN '流量' 
+    WHEN 'GSM' 
+    THEN '语音' 
+    ELSE '其他' 
+  END buiness_type 
+FROM
+  t_r_fee_standard a,
+  t_r_params b,
+  t_r_eparchy c 
+WHERE 1<>?
+  and 2<>?
+  and 3<>?
+  and 4<>?
+  and a.province_code = b.param_code 
+  AND a.eparchy_code = c.eparchy_code 
+  AND b.param_tag = 'PROVINCE_CODE' 
+  and a.province_code = '17'
+  and a.buiness_type = 'GPRS'
+  and a.rate_time like '201705%'
+  and a.rate_time = '20170501']]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>4</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>province_code</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>province_code</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>province_code</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>stage_name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>stage_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>stage_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>stage_time</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>stage_time</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>stage_time</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cdr_type</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cdr_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cdr_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>totals</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totals</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totals</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cycle</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cycle</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cycle</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>param_name</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cdr_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cdr_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>param_name</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>province_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>province_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>param_name</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>stage_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>stage_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>param_name</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>stage_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>stage_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="NewStyle" id="54">
+            <property name="backgroundRepeat">no-repeat</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <table id="6">
+            <property name="pageBreakAfter">always</property>
+            <property name="dataSet">ds</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">param_name</property>
+                    <text-property name="displayName">param_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["param_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">fee</property>
+                    <text-property name="displayName">fee</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fee"]/10</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["phone_number"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">province_code</property>
+                    <text-property name="displayName">province_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["province_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">eparchy_code</property>
+                    <text-property name="displayName">eparchy_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["eparchy_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">eparchy_name</property>
+                    <text-property name="displayName">eparchy_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["eparchy_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">rate_time</property>
+                    <text-property name="displayName">rate_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["rate_time"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">begin_time</property>
+                    <text-property name="displayName">begin_time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["begin_time"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">phone_number</property>
+                    <text-property name="displayName">phone_number</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["phone_number"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">buiness_type</property>
+                    <text-property name="displayName">buiness_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["buiness_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">15</property>
+            <column id="20">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="21">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="27">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="82">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="89">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="95">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="101">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="65">
+                <property name="style">NewStyle</property>
+            </column>
+            <column id="32">
+                <property name="style">NewStyle</property>
+            </column>
+            <header>
+                <row id="46">
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">14pt</property>
+                    <property name="fontStyle">italic</property>
+                    <cell id="47">
+                        <property name="colSpan">9</property>
+                        <property name="rowSpan">1</property>
+                        <label id="52">
+                            <property name="backgroundColor">#66FFFF</property>
+                            <property name="fontSize">17pt</property>
+                            <text-property name="text">详单走标批</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="68">
+                    <property name="backgroundColor">#A5DAB0</property>
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">16pt</property>
+                    <cell id="69">
+                        <label id="74">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">总条数</text-property>
+                        </label>
+                    </cell>
+                    <cell id="70">
+                        <property name="colSpan">8</property>
+                        <property name="rowSpan">1</property>
+                        <data id="75">
+                            <property name="fontSize">15pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">Aggregation</property>
+                        </data>
+                    </cell>
+                </row>
+                <row id="7">
+                    <property name="backgroundColor">#A5DAB0</property>
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">16pt</property>
+                    <cell id="9">
+                        <label id="22">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">省分编码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <label id="23">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">省分</text-property>
+                        </label>
+                    </cell>
+                    <cell id="24">
+                        <label id="28">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">地市编码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="79">
+                        <label id="83">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">地市</text-property>
+                        </label>
+                    </cell>
+                    <cell id="86">
+                        <label id="108">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">批价时间</text-property>
+                        </label>
+                    </cell>
+                    <cell id="92">
+                        <label id="109">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">话单时间</text-property>
+                        </label>
+                    </cell>
+                    <cell id="98">
+                        <label id="110">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">手机号码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="62">
+                        <label id="67">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">费用（分）</text-property>
+                        </label>
+                    </cell>
+                    <cell id="29">
+                        <label id="38">
+                            <property name="fontSize">15pt</property>
+                            <text-property name="text">业务类型</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="11">
+                    <method name="onPrepare"><![CDATA[count=0;]]></method>
+                    <method name="onCreate"><![CDATA[count++;
+if(count % 2 == 0){
+this.getStyle().backgroundColor = "#A5DAB0";
+}else{
+this.getStyle().backgroundColor = "#66FFFF";
+}]]></method>
+                    <property name="fontFamily">"@微软雅黑"</property>
+                    <property name="fontSize">12pt</property>
+                    <property name="textAlign">center</property>
+                    <cell id="13">
+                        <data id="116">
+                            <property name="resultSetColumn">province_code</property>
+                        </data>
+                    </cell>
+                    <cell id="14">
+                        <data id="117">
+                            <property name="resultSetColumn">param_name</property>
+                        </data>
+                    </cell>
+                    <cell id="25">
+                        <data id="118">
+                            <property name="resultSetColumn">eparchy_code</property>
+                        </data>
+                    </cell>
+                    <cell id="80">
+                        <data id="119">
+                            <property name="resultSetColumn">eparchy_name</property>
+                        </data>
+                    </cell>
+                    <cell id="87">
+                        <data id="120">
+                            <property name="resultSetColumn">rate_time</property>
+                        </data>
+                    </cell>
+                    <cell id="93">
+                        <data id="121">
+                            <property name="resultSetColumn">begin_time</property>
+                        </data>
+                    </cell>
+                    <cell id="99">
+                        <data id="122">
+                            <property name="resultSetColumn">phone_number</property>
+                        </data>
+                    </cell>
+                    <cell id="63">
+                        <data id="123">
+                            <property name="resultSetColumn">fee</property>
+                        </data>
+                    </cell>
+                    <cell id="30">
+                        <data id="124">
+                            <property name="resultSetColumn">buiness_type</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="15">
+                    <cell id="17"/>
+                    <cell id="18"/>
+                    <cell id="26"/>
+                    <cell id="81"/>
+                    <cell id="88"/>
+                    <cell id="94"/>
+                    <cell id="100"/>
+                    <cell id="64"/>
+                    <cell id="31"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
